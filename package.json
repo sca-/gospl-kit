@@ -1,7 +1,11 @@
 {
   "name": "@gospl/kit",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "React retro-style UI Components kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sca-/gospl-kit.git"
+  },
   "files": [
     "dist",
     "README.md",
@@ -14,7 +18,10 @@
     "build": "babel ./src --out-dir ./dist --ignore node_modules,dist,*.spec.js --copy-files",
     "prepublish": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "ui-kit"
+  ],
   "author": "Semenov Evgeniy <semenov@tutu.ru>",
   "license": "ISC",
   "dependencies": {
