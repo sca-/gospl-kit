@@ -23,7 +23,8 @@ export default class Text extends React.PureComponent {
     className: PropTypes.string,
     small: PropTypes.bool,
     large: PropTypes.bool,
-    typewriter: PropTypes.bool
+    typewriter: PropTypes.bool,
+    text: PropTypes.string
   }
 
   static defaultProps = {
@@ -33,7 +34,7 @@ export default class Text extends React.PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const { typewriter } = nextProps;
     if (typewriter) {
-      return { charsToWrite: Text.addCharsToWrite(nextProps.children), redraw: true };
+      return { charsToWrite: Text.addCharsToWrite(nextProps.text || nextProps.children), redraw: true };
     }
     return {};
   }
@@ -53,8 +54,17 @@ export default class Text extends React.PureComponent {
 
   static addCharsToWrite(items) {
     let __temp = [];
+    if (!items) {
+      return __temp;
+    }
     if (typeof items === 'string') {
-      __temp = __temp.concat(Array.from(items));
+      __temp = __temp.concat(Array.from(items).map(char => {
+        if (char === '\n') {
+          return '<br/>';
+        } else {
+          return char;
+        }
+      }));
     } else {
       items.map(item => {
         if (typeof item === 'string') {
