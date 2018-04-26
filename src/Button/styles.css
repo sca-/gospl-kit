@@ -1,0 +1,21 @@
+.button {
+  display: inline-block;
+  border: 1px solid #bbb;
+  margin: 10px;
+  padding: 4px;
+  box-shadow: 2px 2px 2px #aaa;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button:hover {
+  border-color: #fff;
+}
+
+.button:active {
+  position: relative;
+  top: 2px;
+  left: 2px;
+  box-shadow: none;
+  border-color: #fff;
+}

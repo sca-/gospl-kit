@@ -1,0 +1,12 @@
+.scrollTop {
+  position: fixed;
+  bottom: 20px;
+}
+
+.scrollTop.right {
+  right: 20px;
+}
+
+.scrollTop.left {
+  left: 20px;
+}

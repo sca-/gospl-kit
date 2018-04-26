@@ -1,0 +1,18 @@
+@font-face {
+  font-family: FixedSys;
+  src: url(./fixedsys.ttf);
+}
+
+.text {
+  font-family: FixedSys, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.text.large {
+  font-size: 20px;
+}
+
+.text.small {
+  font-size: 12px;
+}
