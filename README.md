@@ -22,3 +22,30 @@ const App = (props) => (
 
 render(<App />, document.getElementById('app'));
 ```
+
+## Components
+
+Every component accepts `className` prop if you want to restyle anything
+
+### `Text` renders a text with some cool styling
+Options: 
+- `small` 
+- `large` 
+- `typewriter` – adds typing animation as component first renders and has it's props changed
+- `speed` – changes speed of typewriter effect. Choose between 1 and 10
+
+### `Button` a humble button
+Options: 
+- `onClick` – what else does the Button need? 
+
+### `Panel` renders a hideable panel with default border
+Options: 
+- `hidden` 
+
+### `ScrollTop` renders a small button in the bottom of the screen, which scrolls all the way to top of the page when clicked
+Options: 
+- `position` – 'left' or 'right' 
+
+### `HorizontalScroll` renders a container with `white-space: nowrap;` css option and which scrolls it's contents to the left on mouseWheel event
+Options: 
+- `speed` – choose between 0.1 and 100

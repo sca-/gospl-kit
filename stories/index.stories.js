@@ -7,8 +7,18 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
 import '../src/global.css';
 import Text from '../src/Text';
+import Panel from '../src/Panel';
 import Button from '../src/Button';
 import ScrollTop from '../src/ScrollTop';
+import HorizontalScroll from '../src/HorizontalScroll';
+
+import styles from './index.css';
+
+let range, i;
+for (i = 0; i < 100; i++) {
+  range = range || [];
+  range.push(i);
+}
 
 const textStories = storiesOf('Text');
 textStories.addDecorator(withKnobs);
@@ -36,12 +46,6 @@ buttonStories.add('Default', () => (
     <Text>{text('button label', 'Click ME!')}</Text>
   </Button>
 )).add('Many Buttons', () => {
-  let range, i;
-  for (i = 0; i < 100; i++) {
-    range = range || [];
-    range.push(i);
-  }
-
   return (
     <div style={{ whiteSpace: 'nowrap' }}>
       {range.map(x => (
@@ -53,6 +57,22 @@ buttonStories.add('Default', () => (
   );
 });
 
+const panelStories = storiesOf('Panel');
+panelStories.addDecorator(withKnobs);
+
+panelStories.add('Default', () => (
+  <div>
+    <Panel hidden={boolean('hidden', false)}>
+      <Text>Some text</Text>
+    </Panel>
+    <Panel hidden={boolean('hidden', false)}>
+      <Button>
+        <Text>Some Button</Text>
+      </Button>
+    </Panel>
+  </div>
+));
+
 const scrollTopStories = storiesOf('Scroll Top Btn');
 scrollTopStories.addDecorator(withKnobs);
 
@@ -60,5 +80,73 @@ scrollTopStories.add('Default', () => (
   <div style={{ height: '5000px', border: '1px dashed white', padding: '20px' }}>
     <Text>Start here :)</Text>
     <ScrollTop position={text('position (left/right)', 'right')} />
+  </div>
+));
+
+const hScrollStories = storiesOf('Horizontal Scroller');
+hScrollStories.addDecorator(withKnobs);
+
+hScrollStories.add('Default', () => (
+  <div>
+    <HorizontalScroll speed={number('Scroll Speed', 1)}>
+      <div className={styles.hScroll}>
+        {range.map(x => (
+          <Button key={`Button-${x}`} onClick={action(`Button #${x} clicked`)}>
+            <Text>Button</Text>
+          </Button>
+        ))}
+      </div>
+    </HorizontalScroll>
+    <Text>
+      Some long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      long long long very long long long long very long long long long very long long long long very long 
+      content
+    </Text>
   </div>
 ));

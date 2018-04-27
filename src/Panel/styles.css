@@ -1,0 +1,6 @@
+.container {
+  margin: 10px;
+  border: 1px solid #aaa;
+  padding: 4px;
+  box-shadow: inset -2px -2px 2px #888;
+}
