@@ -10,6 +10,7 @@ import Text from '../src/Text';
 import Panel from '../src/Panel';
 import Button from '../src/Button';
 import ScrollTop from '../src/ScrollTop';
+import SearchBar from '../src/SearchBar';
 import HorizontalScroll from '../src/HorizontalScroll';
 
 import styles from './index.css';
@@ -148,5 +149,14 @@ hScrollStories.add('Default', () => (
       long long long very long long long long very long long long long very long long long long very long 
       content
     </Text>
+  </div>
+));
+
+const searchBarStories = storiesOf('Search Bar');
+searchBarStories.addDecorator(withKnobs);
+
+searchBarStories.add('Default', () => (
+  <div style={{width: 400, border: '1px dashed white', padding: 10}}>
+    <SearchBar onSubmit={action('Submit')} />
   </div>
 ));

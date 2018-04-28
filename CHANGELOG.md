@@ -1,3 +1,6 @@
+## 0.4.0
+- add `SearchBar` component
+
 ### 0.3.1
 - fixed `ScrollTop` button background for it to overlap page contents
 

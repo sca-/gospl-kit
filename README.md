@@ -49,3 +49,7 @@ Options:
 ### `HorizontalScroll` renders a container with `white-space: nowrap;` css option and which scrolls it's contents to the left on mouseWheel event
 Options: 
 - `speed` – choose between 0.1 and 100
+
+### `SearchBar` renders an input with search and clear buttons which responds to Enter and Escape too
+Options: 
+- `onSubmit` – submit handler

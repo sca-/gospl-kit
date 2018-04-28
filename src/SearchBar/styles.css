@@ -1,0 +1,25 @@
+.container {
+
+}
+
+.input {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 60px);
+    font-family: FixedSys, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.btn.search {
+    margin-right: 8px;
+}
+
+.btn.clear {
+    margin-left: 8px;
+}
