@@ -9,7 +9,7 @@ import Text from '../Text';
 
 const ScrollTop = ({ className, position = 'right' }) => (
   <div className={cn(styles.scrollTop, styles[position], className)}>
-    <Button onClick={() => {
+    <Button className={styles.button} onClick={() => {
       scrollToY()
     }}>
       <Text>⇈</Text>
