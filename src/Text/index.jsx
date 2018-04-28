@@ -19,7 +19,7 @@ export default class Text extends React.PureComponent {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
-    ]).isRequired,
+    ]),
     className: PropTypes.string,
     small: PropTypes.bool,
     large: PropTypes.bool,

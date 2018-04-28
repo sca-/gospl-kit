@@ -12,7 +12,7 @@ const Panel = (props) => (
   )
 );
 
-Panel.PropTypes = {
+Panel.propTypes = {
   hidden: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.oneOfType([
