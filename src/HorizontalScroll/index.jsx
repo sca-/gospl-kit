@@ -4,48 +4,41 @@ import cn from 'classnames';
 
 import styles from './styles.css';
 
-export default class HorizontalScroller extends React.Component {
-  constructor(props) {
-    super(props);
-    this.container = React.createRef();
-    this.onScroll = this.onScroll.bind(this);
-  }
+const HorizontalScroller = (props) => {
+  const container = React.useRef();
+  const { className, children } = props;
 
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]).isRequired,
-    speed: PropTypes.number
-  }
+  React.useEffect(() => {
+    container.current.addEventListener('wheel', event => {
+      const { speed } = props;
+      event.stopPropagation();
 
-  static defaultProps = {
-    speed: 10
-  }
+      const newScrollLeft = container.current.scrollLeft + speed * (event.deltaX + event.deltaY);
+      if (newScrollLeft >= 0 && newScrollLeft <= container.current.scrollWidth - container.current.clientWidth) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        container.current.scrollLeft = newScrollLeft;
+      }
+    })
+  }, []);
 
-  onScroll(event) {
-    const { speed } = this.props;
-    event.stopPropagation();
+  return (
+    <div
+      ref={container}
+      className={cn(styles.scroller, className)}
+    >
+      {children}
+    </div>
+  );
+};
 
-    const newScrollLeft = this.container.current.scrollLeft + speed * (event.nativeEvent.deltaX + event.nativeEvent.deltaY);
-    if (newScrollLeft >= 0 && newScrollLeft <= this.container.current.scrollWidth - this.container.current.clientWidth) {
-      event.nativeEvent.preventDefault();
-      event.nativeEvent.stopImmediatePropagation();
-      this.container.current.scrollLeft = newScrollLeft;
-    }
-  }
+HorizontalScroller.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  speed: PropTypes.number
+};
 
-  render() {
-    const { className, children } = this.props;
-    return (
-      <div
-        ref={this.container}
-        className={cn(styles.scroller, className)}
-        onWheel={this.onScroll}
-      >
-        {children}
-      </div>
-    );
-  }
-}
+export default HorizontalScroller;

@@ -25,23 +25,18 @@
   "author": "Semenov Evgeniy <semenov@tutu.ru>",
   "license": "ISC",
   "dependencies": {
-    "classnames": "^2.2.5",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.2",
-    "@storybook/addon-knobs": "^3.4.2",
-    "@storybook/addon-links": "^3.4.2",
-    "@storybook/addons": "^3.4.2",
-    "@storybook/react": "^3.4.2",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-runtime": "^6.26.0"
+    "@babel/core": "^7.8.4",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addons": "^5.3.13",
+    "@storybook/react": "^5.3.13",
+    "babel-loader": "^8.0.6"
   }
 }
