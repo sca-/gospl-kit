@@ -6,58 +6,55 @@ import styles from './styles.css';
 import zoom from './images/zoom.png';
 import x from './images/x.png';
 
-export default class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.input = React.createRef();
+const SearchBar = (props) => {
+    const { className, onSubmit } = props;
+    const [value, setValue] = React.useState('');
+    
+    const clear = () => {
+        setValue('');
     }
 
-    static propTypes = {
-        className: PropTypes.string,
-        onSubmit: PropTypes.func.isRequired
+    const submit = () => {
+        onSubmit(value);
+        clear();
     }
 
-    static defaultProps = {
-        onSubmit: console.log
-    }
+    return (
+        <div className={cn(styles.container, className)}>
+            <img 
+                className={cn(styles.btn, styles.search)}
+                src={zoom}
+                onClick={() => submit()}
+            />
+            <input
+                className={styles.input}
+                value={value}
+                onChange={e => setValue(e.target.value)}
+                type="text"
+                onKeyUp={({ keyCode }) => {
+                    if (keyCode === 13) {
+                        submit();
+                    } else if (keyCode === 27) {
+                        clear();
+                    }
+                }}
+            />
+            <img
+                className={cn(styles.btn, styles.clear)}
+                src={x}
+                onClick={() => clear()}
+            />
+        </div>
+    );
+};
 
-    submit() {
-        this.props.onSubmit(this.input.current.value);
-        this.clear();
-    }
+SearchBar.propTypes = {
+    className: PropTypes.string,
+    onSubmit: PropTypes.func.isRequired
+};
 
-    clear() {
-        this.input.current.value = '';
-    }
+SearchBar.defaultProps = {
+    onSubmit: console.log
+};
 
-    render() {
-        const { className, onSubmit } = this.props;
-
-        return (
-            <div className={cn(styles.container, className)}>
-                <img 
-                    className={cn(styles.btn, styles.search)}
-                    src={zoom}
-                    onClick={() => this.submit()}
-                />
-                <input
-                    className={styles.input}
-                    ref={this.input}
-                    type="text"
-                    onKeyUp={({ keyCode }) => {
-                        if (keyCode === 13) {
-                            this.submit();
-                        } else if (keyCode === 27) {
-                            this.clear();
-                        }
-                    }}
-                />
-                <img
-                    className={cn(styles.btn, styles.clear)}
-                    src={x}
-                    onClick={() => this.clear()}
-                />
-            </div>
-        );
-    }
-}
+export default SearchBar;

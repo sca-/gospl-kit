@@ -41,4 +41,8 @@ HorizontalScroller.propTypes = {
   speed: PropTypes.number
 };
 
+HorizontalScroller.defaultProps = {
+  speed: 10
+};
+
 export default HorizontalScroller;

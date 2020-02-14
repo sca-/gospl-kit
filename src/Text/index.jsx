@@ -50,7 +50,7 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 }
 
-export default Text = (props) => {
+const Text = (props) => {
   const defaultText = addCharsToWrite(props.text || props.children)
   const [text, setText] = React.useState(props.typewriter ? '' : defaultText);
 
@@ -89,3 +89,9 @@ Text.propTypes = {
   typewriter: PropTypes.bool,
   text: PropTypes.string
 };
+
+Text.defaultProps = {
+  speed: 5
+};
+
+export default Text;
